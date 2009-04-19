@@ -1,0 +1,28 @@
+<?php
+
+ // Default email address for notifications. (**Required**)
+define(DEFAULT_EMAIL, '--your_email_address--');
+
+ // For better chance of not having emails filtered as junk. (Optional)
+define(DEFAULT_REAL_NAME, '');
+
+// Emaill address for From/Reply-to (Optional -- will default to account/default email address)
+define(DEFAULT_FROM_EMAIL, '');
+
+
+// Twitter account(s)...
+$twitter = array(
+  array(
+    // Twitter username
+    'user' => 'your_twitter_username',
+    // Twitter password
+    'pass' => 'your_twitter_password',
+     // Email address (optional -- will default to DEFAULT_EMAIL)
+    'email' => '',
+    // Your real name (to reduce emails filtering out as junk) (optonal -- will default to DEFAULT_REAL_NAME)
+    'name' => '', 
+  ),
+  // ... to check more, just copy the few lines above and add another account!
+);
+
+?>

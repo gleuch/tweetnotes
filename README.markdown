@@ -1,10 +1,6 @@
-tweetnotes
-========================================================================================
+# tweetnotes #
 
 A nifty script send notification you when people unfollow you on [Twitter](http://www.twitter.com).
-
-----------------------------------------------------------------------------------------
-
 
 **Upcoming features**
 
@@ -17,8 +13,7 @@ A nifty script send notification you when people unfollow you on [Twitter](http:
 
 
 
-Installation
-----------------------------------
+## Installation ##
 
 **To Use**
 
@@ -33,7 +28,7 @@ Installation
 * To view just web stats without emails, add ?web to the URL.
 
 
-----------------------------------------------------------------------------------------
+## About ##
 
 Released under [Creative Common License Attribution-Noncommercial-Share Alike 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 

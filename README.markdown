@@ -16,8 +16,9 @@ A nifty script send notification you when people unfollow you on [Twitter](http:
 * Switch to OAuth.
 
 
-----------------------------------------------------------------------------------------
 
+Installation
+----------------------------------
 
 **To Use**
 

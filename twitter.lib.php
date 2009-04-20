@@ -1,4 +1,16 @@
 <?php
+/*
+  tweetnotes
+  Core Twitter Library
+  ----------------------------------------------------------------------------------------------------------------
+
+  A nifty script send notification you when people unfollow you on Twitter.
+  More information at http://gleuch.com/projects/tweetnotes -or- http://github.com/gleuch/tweetnotes
+
+  ----------------------------------------------------------------------------------------------------------------
+  Released under Creative Common License Attribution-Noncommercial-Share Alike 3.0
+  
+*/
 
 class Twitter {
 	public static $Host;

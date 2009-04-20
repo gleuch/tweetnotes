@@ -28,6 +28,7 @@ class Twitter {
   public static function NotifyUnfollows() {
     $current_followers = Twitter::Followers();
     $unfollowed = array();
+
     if (is_array($current_followers) && count($current_followers) > 0) {
       $file = './cache/'. Twitter::$Username .'/followers';
       if (!is_file($file)) touch($file);
@@ -38,7 +39,12 @@ class Twitter {
       $filetime = filemtime($file);
 
       if ($ct_prev > 0) {
-        foreach ($prev_followers as $k=>$follower) if (!empty($follower) && !in_array($follower, $current_followers)) array_push($unfollowed, $follower);
+        foreach ($prev_followers as $k=>$follower) {
+          if (!empty($follower) && !in_array($follower, $current_followers)) {
+            $follower_html = '<a href="http://www.twitter.com/'. $follower .'">'. $follower .'</a>';
+            array_push($unfollowed, $follower_html);
+          }
+        }
       }
       $ct_unfollowed = count($unfollowed);
 
@@ -49,7 +55,7 @@ class Twitter {
       } else {
         $msg = '<p>You had no users unfollow %s %s.</p>';
       }
-      if ($ct_prev != $ct_current || $ct_unfollowed > 0) $msg .= '<p>Your follower count has'. ($ct_unfollowed > 0 ? ' also' : '') .' '. ($ct_prev > $ct_current ? 'dropped' : 'increased') .' by '. abs($ct_prev-$ct_current) .' follower'. (abs($ct_prev-$ct_current) != 1 ? 's' : '') .'.</p>';
+      if ($ct_prev != $ct_current || $ct_unfollowed > 0) $msg .= '<p>Your follower count has'. ($ct_unfollowed > 0 ? ' now' : '') .' '. ($ct_prev > $ct_current ? 'dropped' : 'increased') .' by '. abs($ct_prev-$ct_current) .' follower'. (abs($ct_prev-$ct_current) != 1 ? 's' : '') .'.</p>';
 
       $msg = sprintf($msg, 'your Twitter account \''. Twitter::$Username .'\'', Twitter::FancyTime(date("U")-$filetime, 'in the past %s'));
 
@@ -64,6 +70,7 @@ class Twitter {
           } else {
             $msg = '<p>Hello '. $name .',</p>'. $msg .'<p><br />Thanks,</p><p>Your Friendly Twitter Unfollower Notifier</p>';
           }
+          //echo $msg;
           Twitter::SendEmail('Unfollow Note for '. Twitter::$Username, $msg);
         }
       }
@@ -110,10 +117,9 @@ class Twitter {
         $size = count($page_followers);
         if ($size > 0) foreach ($page_followers as $k=>$follower) array_push($followers, $follower->screen_name);
         if ($size == 100) $page++;
-        return false;
       } else {
         echo Twitter::$Username .': '. $page_followers->error;
-        return $page_followers->error;
+        return false;
       }
     }
     return $followers;

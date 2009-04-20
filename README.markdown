@@ -17,7 +17,7 @@ A nifty script send notification you when people unfollow you on [Twitter](http:
 
 **To Use**
 
-1. Download script (git clone git@github.com/gleuch/tweetnotes).
+1. Download script (git clone git://github.com/gleuch/tweetnotes.git).
 2. Rename config.inc.php.sample to config.inc.php.
 3. Add your name, email, and twitter account information.
 4. Check it out (http://yourdomain.com/path/to/unfollowed.php)
